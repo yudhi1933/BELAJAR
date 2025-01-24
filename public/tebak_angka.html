@@ -33,35 +33,6 @@
           <button onclick="window.location.reload()" class="font-serif bg-blue-500 text-black p-3 border border-black text-3xl col-span-2 hover:bg-blue-200 rounded mt-2">Coba Lagi</button>
       </div>
     </div>
-    <script>
-        let maxAngka = 3;
-        let maxKesempatan = maxAngka;
-        let kesempatan = document.getElementById('kesempatan');
-        let random = Math.floor(Math.random() * 10) + 1;
-
-        function nomorAcak(nomor) {
-          if (maxKesempatan > 0) {
-            if (nomor == random) {
-              kesempatan.innerHTML = 'Selamat Anda Menang! Angka yang benar adalah ' + random; 
-              return;
-            } else if (nomor < random) {
-              maxKesempatan--;
-              kesempatan.innerHTML = 'Angka terlalu kecil ' + maxKesempatan;
-            } else if (nomor > random) {
-              maxKesempatan--;
-              kesempatan.innerHTML = 'Angka terlalu besar ' + maxKesempatan;
-            }
-
-          }
-          if (maxKesempatan === 0) {
-            kesempatan.innerHTML = 'Anda Kalah! Angka yang benar adalah ' + random;
-          }
-        }
-      
-      
-        
-        
-
-    </script>
+    <script src="../scripts/tebak_angka.js"></script>
   </body>
 </html>
