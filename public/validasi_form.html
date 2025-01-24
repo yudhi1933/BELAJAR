@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validasi Form</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .valid {
+        border: green solid 2px;
+      }
+
+      .invalid {
+        border: red solid 2px;
+      }
+    </style>
+  </head>
+  <body class="mx-10 bg-blue-100">
+    <div class="items-center">
+      <h1 class="text-5xl my-10 text-black font-serif text-center items-center">Validasi Form</h1>
+      <form action="" id="form" class="grid grid-cols-4 gap-4 border border-slate-900 p-7 rounded bg-white">
+        <label for="name">Nama Lengkap :</label>
+        <input class="semuaInput col-span-3 border border-slate-600 p-2" name="nama" type="text" placeholder="Masukan Nama Lengkap....." />
+        <label for="email">Email :</label>
+        <input class="semuaInput col-span-3 border border-slate-600 p-2" name="email" type="email" autocomplete="email" placeholder="@gmail.com" />
+        <label for="password">Password :</label>
+        <input class="semuaInput col-span-3 border border-slate-600 p-2" name="password" type="password" autocomplete="current-password" placeholder="minimal 8 karakter...." />
+        <label for="tangal_lahir">Tempat/Tanggal Lahir :</label>
+        <input class="semuaInput col-span-3 border border-slate-600 p-2" name="tangal_lahir" type="text" placeholder="Masukan Tempat/Tanggal Lahir....." />
+        <label for="umur">Umur :</label>
+        <input class="semuaInput col-span-3 border border-slate-600 p-2" name="umur" type="number" placeholder="minimal 17 tahun....." />
+        <label for="jenis_kelamin"> Jenis Kelamin :</label>
+        <div class="col-span-3 flex">
+          <input class="semuaInput border border-slate-600 p-2" type="radio" name="jenis_kelamin" value="Laki-laki" />
+          <label for="Laki-laki">Laki-laki</label>
+          <input class="semuaInput ml-5 border border-slate-600 p-2" type="radio" name="jenis_kelamin" value="Perempuan" />
+          <label for="Perempuan">Perempuan</label>
+        </div>
+        <label for="agama"> Agama :</label>
+        <select class="semuaInput col-span-3 border border-slate-600 p-2" name="agama">
+          <option value="Islam">Islam</option>
+          <option value="Kristen">Kristen</option>
+          <option value="Katolik">Katolik</option>
+          <option value="Hindu">Hindu</option>
+          <option value="Budha">Budha</option>
+          <option value="Konghucu">Konghucu</option>
+          <option value="Lainnya">Lainnya</option>
+        </select>
+        <label for="alamat">Alamat :</label>
+        <input class="semuaInput col-span-3 border border-slate-600 px-2 py-5" name="alamat" type="text" placeholder="Masukan Alamat Lengkap....." />
+        <label for="metode">Metode Belajar :</label>
+        <select class="semuaInput col-span-3 border border-slate-600 p-2" name="metode">
+          <option value="Frontend">Frontend</option>
+          <option value="Backend">Backend</option>
+          <option value="Fullstack">Fullstack</option>
+        </select>
+      </form>
+      <div class="text-center">
+        <button type="submit" onclick="validateForm(event)" id="submit" class="bg-blue-700 mt-10 items-center justify-center text-white py-2 px-4 rounded hover:bg-blue-400">Kirim</button>
+      </div>
+      <p id="errorMessage" class="text-red-600"></p>
+    </div>
+    <script>
+      function validateForm(event) {
+      event.preventDefault(); // Mencegah refresh halaman
+      const form = document.getElementById('form');
+      const inputs = form.querySelectorAll('.semuaInput');
+      let isValid = true;
+      let errorMessage = '';
+
+      inputs.forEach((input) => {
+        const name = input.name;
+        const value = input.value.trim();
+
+        switch (name) {
+          case 'nama':
+            if (value === '') {
+              isValid = false;
+              errorMessage += 'Nama tidak boleh kosong.\n';
+            }
+            break;
+          case 'email':
+            const emailPattern = /^[^@]+@[^@]+\.[a-z]{2,}$/i;
+            if (!emailPattern.test(value)) {
+              isValid = false;
+              errorMessage += 'Format email tidak valid.\n';
+            }
+            break;
+          case 'password':
+            if (value.length < 8) {
+              isValid = false;
+              errorMessage += 'Password minimal 8 karakter.\n';
+            }
+            break;
+          case 'tangal_lahir':
+            if (value === '') {
+              isValid = false;
+              errorMessage += 'Tanggal lahir tidak boleh kosong.\n';
+            }
+            break;
+          case 'umur':
+            if (value < 17) {
+              isValid = false;
+              errorMessage += 'Umur minimal 17 tahun.\n';
+            }
+            break;
+          case 'jenis_kelamin':
+            const genderSelected = form.querySelector('input[name="jenis_kelamin"]:checked');
+            if (!genderSelected) {
+              isValid = false;
+              errorMessage += 'Jenis kelamin harus dipilih.\n';
+            }
+            break;
+          case 'agama':
+            if (value === '') {
+              isValid = false;
+              errorMessage += 'Agama harus dipilih.\n';
+            }
+            break;
+          case 'alamat':
+            if (value === '') {
+              isValid = false;
+              errorMessage += 'Alamat tidak boleh kosong.\n';
+            }
+            break;
+          case 'metode':
+            if (value === '') {
+              isValid = false;
+              errorMessage += 'Metode belajar harus dipilih.\n';
+            }
+            break;
+        }
+      });
+
+      const errorMessageElement = document.getElementById('errorMessage');
+      if (!isValid) {
+        errorMessageElement.textContent = errorMessage;
+      } else {
+        alert = 'Form berhasil dikirim!';
+      }
+    }
+      
+    </script>
+  </body>
+</html>

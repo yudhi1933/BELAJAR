@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tebak Angka</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-blue-300">
+    <div class="text-center">
+      <h1 class="text-5xl mb-5 mt-3 font-serif">Tebak Angka</h1>
+      <div>
+        <p class="text-lg">
+          Silahkan bermain tebak angka <br />
+          dengan memilih angka 1-10 <br />dan anda memiliki 3 kesempatan <br />jika anda salah maka kesempatan akan berkurang 1 !!
+        </p>                        
+        <h2 class="text-3xl font-mono">Selamat Mencoba</h2>
+      </div>
+      <div class="grid grid-cols-5 mt-20 mx-auto gap-8 w-1/2">
+        <button onclick="nomorAcak('1')" class="bg-blue-500 rounded-full w-32 h-32 text-4xl font-mono">1</button>
+        <button onclick="nomorAcak('2')" class="bg-blue-500 rounded-full w-32 h-32 text-4xl font-mono">2</button>
+        <button onclick="nomorAcak('3')" class="bg-blue-500 rounded-full w-32 h-32 text-4xl font-mono">3</button>
+        <button onclick="nomorAcak('4')" class="bg-blue-500 rounded-full w-32 h-32 text-4xl font-mono">4</button>
+        <button onclick="nomorAcak('5')" class="bg-blue-500 rounded-full w-32 h-32 text-4xl font-mono">5</button>
+        <button onclick="nomorAcak('6')" class="bg-blue-500 rounded-full w-32 h-32 text-4xl font-mono">6</button>
+        <button onclick="nomorAcak('7')" class="bg-blue-500 rounded-full w-32 h-32 text-4xl font-mono">7</button>
+        <button onclick="nomorAcak('8')" class="bg-blue-500 rounded-full w-32 h-32 text-4xl font-mono">8</button>
+        <button onclick="nomorAcak('9')" class="bg-blue-500 rounded-full w-32 h-32 text-4xl font-mono">9</button>
+        <button onclick="nomorAcak('10')" class="bg-blue-500 rounded-full w-32 h-32 text-4xl font-mono">10</button>
+      </div>
+      <div class="mt-10">
+        <h4 class="text-3xl font-mono" id="kesempatan"></h2>
+          <button onclick="window.location.reload()" class="font-serif bg-blue-500 text-black p-3 border border-black text-3xl col-span-2 hover:bg-blue-200 rounded mt-2">Coba Lagi</button>
+      </div>
+    </div>
+    <script>
+        let maxAngka = 3;
+        let maxKesempatan = maxAngka;
+        let kesempatan = document.getElementById('kesempatan');
+        let random = Math.floor(Math.random() * 10) + 1;
+
+        function nomorAcak(nomor) {
+          if (maxKesempatan > 0) {
+            if (nomor == random) {
+              kesempatan.innerHTML = 'Selamat Anda Menang! Angka yang benar adalah ' + random; 
+              return;
+            } else if (nomor < random) {
+              maxKesempatan--;
+              kesempatan.innerHTML = 'Angka terlalu kecil ' + maxKesempatan;
+            } else if (nomor > random) {
+              maxKesempatan--;
+              kesempatan.innerHTML = 'Angka terlalu besar ' + maxKesempatan;
+            }
+
+          }
+          if (maxKesempatan === 0) {
+            kesempatan.innerHTML = 'Anda Kalah! Angka yang benar adalah ' + random;
+          }
+        }
+      
+      
+        
+        
+
+    </script>
+  </body>
+</html>

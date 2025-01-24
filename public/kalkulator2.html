@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="mx-60">
+      <h1 class="text-4xl mb-5 mt-3 text-blue-500 font-serif text-center items-center">Kalkulator</h1>
+      <table class="">
+        <div class="grid grid-cols-4">
+          <input id="myInput" type="number" placeholder="masukan angka....." class="bg-black text-white text-4xl border border-black col-span-4 px-10 py-5" />
+          <button onclick="resetCalculator('C')" class="bg-red-300 text-black p-8 border border-black text-3xl col-span-2">C</button>
+          <button onclick="inputOperator('/')" class="bg-blue-500 text-black p-8 border border-black text-3xl">/</button>
+          <button onclick="inputOperator('*')" class="bg-blue-500 text-black p-8 border border-black text-3xl">*</button>
+          <button onclick="inputNumber('1')" class="bg-blue-500 text-black p-8 border border-black text-3xl">1</button>
+          <button onclick="inputNumber('2')" class="bg-blue-500 text-black p-8 border border-black text-3xl">2</button>
+          <button onclick="inputNumber('3')" class="bg-blue-500 text-black p-8 border border-black text-3xl">3</button>
+          <button onclick="inputOperator('-')" class="bg-blue-500 text-black p-8 border border-black text-3xl">-</button>
+          <button onclick="inputNumber('4')" class="bg-blue-500 text-black p-8 border border-black text-3xl">4</button>
+          <button onclick="inputNumber('5')" class="bg-blue-500 text-black p-8 border border-black text-3xl">5</button>
+          <button onclick="inputNumber('6')" class="bg-blue-500 text-black p-8 border border-black text-3xl">6</button>
+          <button onclick="inputOperator('+')" class="bg-blue-500 text-black p-8 border border-black text-3xl">+</button>
+          <button onclick="inputNumber('7')" class="bg-blue-500 text-black p-8 border border-black text-3xl">7</button>
+          <button onclick="inputNumber('8')" class="bg-blue-500 text-black p-8 border border-black text-3xl">8</button>
+          <button onclick="inputNumber('9')" class="bg-blue-500 text-black p-8 border border-black text-3xl">9</button>
+          <button onclick="inputNumber('0')" class="bg-blue-500 text-black p-8 border border-black text-3xl">0</button>
+          <button onclick="inputNumber('00')" class="bg-blue-500 text-black p-8 border border-black text-3xl">00</button>
+          <button onclick="backspace('x')" class="bg-blue-500 p-8 border border-black text-3xl text-red-700">X</button>
+          <button onclick="calculate('=')" class="bg-blue-500 text-black p-8 border border-black text-3xl col-span-2">=</button>
+        </div>
+      </table>
+    </div>
+    <script>
+      let currentInput = ""; // menyimpan angka yang sedang di input
+      let previousValue = ""; // Menyimpan angka sebelumnya
+      let operator = ""; // Menyimpan operator yang digunakan
+
+      // Fungsi untuk memperbarui tampilan
+      function updateDisplay(value) {
+        document.getElementById("myInput").value = value;
+      }
+
+      // Fungsi untuk memasukkan angka
+      function inputNumber(value) {
+        currentInput += value;
+        updateDisplay(currentInput);
+      }
+
+      function inputOperator(op) {
+        if (currentInput === "") return; // Jika currentInput kosong, tidak melakukan apa-apa
+        if (operator !== "") {
+          calculate(); // hitung angka jika ada operator sebelumnya
+        }
+        operator = op; 
+        previousValue = currentInput;
+        currentInput = "";
+      }
+
+      // Fungsi untuk menghitung hasil
+      function calculate() {
+        if (currentInput === "" || previousValue === "") return; // Cek validasi input
+        const prev = parseFloat(previousValue);
+        const curr = parseFloat(currentInput);
+        let result;
+
+        switch (operator) {
+          case "+":
+            result = prev + curr;
+            break;
+          case "-":
+            result = prev - curr;
+            break;
+          case "*":
+            result = prev * curr;
+            break;
+          case "/":
+            result = curr !== 0 ? prev / curr : "Error"; // Hindari pembagian oleh 0
+            break;
+          default:
+            return;
+        }
+
+        currentInput = result.toString();
+        previousValue = "";
+        operator = "";
+        updateDisplay(currentInput);
+      }
+
+      //menghapus semua yang ada di input
+      function resetCalculator() {
+        currentInput = "";
+        previousValue = "";
+        operator = "";
+        updateDisplay("");
+      }
+
+      function backspace() {
+        currentInput = currentInput.slice(0, -1);
+        updateDisplay(currentInput);
+      }
+
+    </script>
+  </body>
+</html>
