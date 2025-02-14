@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shooping Cart</title>
+    <!-- tailwind -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body class="bg-gray-300">
+    <div class="grid grid-cols-4">
+      <div class="col-span-3 bg-white" x-data="products" id="products" class="products">
+        <div class="mx-10">
+          <div class="flex justify-between border-b border-gray-500 pb-3 pt-10 mb-5">
+            <h1 class="text-3xl font-bold">YOUR SHOPPING CART</h1>
+            <span class="text-3xl font-bold">3 ITEMS </span>
+          </div>
+          <div class="grid grid-cols-2">
+            <div class="col-span-1">
+              <span class="font-semibold">ITEM INFO</span>
+            </div>
+            <div class="col-span-1">
+              <div class="grid grid-cols-3 text-center">
+                <div class="col-span-1">
+                  <span class="text-xl font-bold w-full block mb-10">PRICE</span>
+                </div>
+                <div class="col-span-2">
+                  <span class="text-lg font-bold w-full block mb-10">Add to cart </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="jaketOlahraga" class="menu-cart grid grid-cols-2">
+            <div class="col-span-1">
+              <div class="grid grid-cols-2">
+                <div class="col-span-1">
+                  <img class="menu-cart-img w-40 border border-gray-500" src="./img/shopping_cart/1.png" alt="Jaket Olahraga" />
+                </div>
+                <div class="col-span-1">
+                  <span class="menu-cart-title text-lg font-bold w-full block mb-10">JAKET OLAHRAGA</span>
+                  <span class="text-sm">SIZE : XL</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="grid grid-cols-3 text-center mt-16">
+                <div class="col-span-1">
+                  <span class="menu-cart-price text-lg font-semibold">Rp.550.000,00</span>
+                </div>
+                <div class="col-span-2 place-items-center">
+                  <svg
+                    class="hover:cursor-pointer"
+                    onclick="tambah('Jaket Olahraga', 550000)"
+                    class="feather feather-shopping-cart"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="9" cy="21" r="1" />
+                    <circle cx="20" cy="21" r="1" />
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="hody" class="menu-cart grid grid-cols-2 mt-5">
+            <div class="col-span-1">
+              <div class="grid grid-cols-2">
+                <div class="col-span-1">
+                  <img class="menu-cart-img w-40 border border-gray-500" src="./img/shopping_cart/2.png" alt="Hody" />
+                </div>
+                <div class="col-span-1">
+                  <span class="menu-cart-title text-lg font-bold w-full block mb-10">HODY</span>
+                  <span class="text-sm">SIZE : XL</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="grid grid-cols-3 text-center mt-16">
+                <div class="col-span-1">
+                  <span class="menu-cart-price text-lg font-semibold">Rp.400.000,00</span>
+                </div>
+                <div class="col-span-2 place-items-center">
+                  <svg
+                    class="hover:cursor-pointer"
+                    onclick="tambah('Hody', 400000)"
+                    class="feather feather-shopping-cart"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="9" cy="21" r="1" />
+                    <circle cx="20" cy="21" r="1" />
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="jaketMerah" class="menu-cart grid grid-cols-2 mt-5 pb-10">
+            <div class="col-span-1">
+              <div class="grid grid-cols-2">
+                <div class="col-span-1">
+                  <img class="menu-cart-img w-40 border border-gray-500" src="./img/shopping_cart/3.png" alt="Jaket Kasual Merah" />
+                </div>
+                <div class="col-span-1">
+                  <span class="menu-cart-title text-lg font-bold w-full block mb-10">JAKET MERAH KASUAL</span>
+                  <span class="text-sm">SIZE : XL</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-1">
+              <div class="grid grid-cols-3 text-center">
+                <div class="col-span-1 mt-16">
+                  <span class="menu-cart-price text-lg font-semibold">Rp.600.000,00</span>
+                </div>
+                <div class="col-span-2 mt-16 place-items-center">
+                  <svg
+                    class="hover:cursor-pointer"
+                    onclick="tambah('Jaket Kasual Merah', 600000)"
+                    class="feather feather-shopping-cart"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="9" cy="21" r="1" />
+                    <circle cx="20" cy="21" r="1" />
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="shopping-cart col-span-1 bg-gray-100 pt-10">
+        <!-- shopping cart start -->
+        <div class="shopping-cart">
+          <form id="form" class="mx-5">
+            <h4 class="text-center text-2xl font-bold">Cart is Empty</h4>
+            <div class="border-b border-dashed border-gray-500 border-t py-5">
+              <ul id="cart-list">
+
+              </ul> 
+              <h4 class="text-center text-lg font-bold mt-16">Total : <span id="total"></span></h4>
+            </div>
+            <h5 class="text-lg font-bold text-center">Customer Detail</h5>
+            <label class="flex space-x-3 my-2" for="name">
+              <span class="p-2">Name:</span>
+              <input class="w-full p-2" type="text" name="name" id="name" />
+            </label>
+            <label class="flex space-x-4 my-2" for="email">
+              <span class="p-2">Email:</span>
+              <input class="w-full p-2" type="email" name="email" id="email" />
+            </label>
+            <label class="flex space-x-2 my-2" for="phone">
+              <span class="p-2">Phone:</span>
+              <input class="w-full p-2" type="number" name="phone" id="phone" autocomplete="off" />
+            </label>
+            <div class="flex justify-center">
+              <button class="bg-blue-500 mt-10 text-white py-2 px-4 rounded hover:bg-blue-300" class="checkout-button disabled" type="submit" id="checkout-button" value="checkout">Checkout</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- shopping cart end -->
+    </div>
+    <script src="./script/shopping_cart.js"></script>
+  </body>
+</html>
