@@ -6,6 +6,16 @@
     <title>Shooping Cart</title>
     <!-- tailwind -->
     <link rel="stylesheet" href="./css/style.css" />
+    <!-- <style>
+      .small-input {
+          width: 50px;
+          height: 20px;
+      }
+      .small-button {
+          width: 50px;
+          height: 20px;
+      }
+    </style> -->
   </head>
   <body class="bg-gray-300">
     <div class="grid grid-cols-4">
@@ -37,7 +47,7 @@
                   <img class="menu-cart-img w-40 border border-gray-500" src="./img/shopping_cart/1.png" alt="Jaket Olahraga" />
                 </div>
                 <div class="col-span-1">
-                  <span class="menu-cart-title text-lg font-bold w-full block mb-10">JAKET OLAHRAGA</span>
+                  <span class="menu-cart-title text-lg font-serif w-full block mb-10">EGIER</span>
                   <span class="text-sm">SIZE : XL</span>
                 </div>
               </div>
@@ -50,7 +60,7 @@
                 <div class="col-span-2 place-items-center">
                   <svg
                     class="hover:cursor-pointer"
-                    onclick="tambah('Jaket Olahraga', 550000)"
+                    onclick="keranjang('EGIER', 550000)"
                     class="feather feather-shopping-cart"
                     fill="none"
                     height="24"
@@ -77,7 +87,7 @@
                   <img class="menu-cart-img w-40 border border-gray-500" src="./img/shopping_cart/2.png" alt="Hody" />
                 </div>
                 <div class="col-span-1">
-                  <span class="menu-cart-title text-lg font-bold w-full block mb-10">HODY</span>
+                  <span class="menu-cart-title text-lg font-serif w-full block mb-10">HODY</span>
                   <span class="text-sm">SIZE : XL</span>
                 </div>
               </div>
@@ -90,7 +100,7 @@
                 <div class="col-span-2 place-items-center">
                   <svg
                     class="hover:cursor-pointer"
-                    onclick="tambah('Hody', 400000)"
+                    onclick="keranjang('HODY', 400000)"
                     class="feather feather-shopping-cart"
                     fill="none"
                     height="24"
@@ -117,7 +127,7 @@
                   <img class="menu-cart-img w-40 border border-gray-500" src="./img/shopping_cart/3.png" alt="Jaket Kasual Merah" />
                 </div>
                 <div class="col-span-1">
-                  <span class="menu-cart-title text-lg font-bold w-full block mb-10">JAKET MERAH KASUAL</span>
+                  <span class="menu-cart-title text-lg font-serif w-full block mb-10">KASUAL</span>
                   <span class="text-sm">SIZE : XL</span>
                 </div>
               </div>
@@ -130,7 +140,7 @@
                 <div class="col-span-2 mt-16 place-items-center">
                   <svg
                     class="hover:cursor-pointer"
-                    onclick="tambah('Jaket Kasual Merah', 600000)"
+                    onclick="keranjang('KASUAL', 600000)"
                     class="feather feather-shopping-cart"
                     fill="none"
                     height="24"
@@ -152,34 +162,34 @@
           </div>
         </div>
       </div>
-      <div class="shopping-cart col-span-1 bg-gray-100 pt-10">
-        <!-- shopping cart start -->
-        <div class="shopping-cart">
-          <form id="form" class="mx-5">
-            <h4 class="text-center text-2xl font-bold">Cart is Empty</h4>
-            <div class="border-b border-dashed border-gray-500 border-t py-5">
-              <ul id="cart-list">
-
-              </ul> 
-              <h4 class="text-center text-lg font-bold mt-16">Total : <span id="total"></span></h4>
-            </div>
-            <h5 class="text-lg font-bold text-center">Customer Detail</h5>
-            <label class="flex space-x-3 my-2" for="name">
-              <span class="p-2">Name:</span>
-              <input class="w-full p-2" type="text" name="name" id="name" />
-            </label>
-            <label class="flex space-x-4 my-2" for="email">
-              <span class="p-2">Email:</span>
-              <input class="w-full p-2" type="email" name="email" id="email" />
-            </label>
-            <label class="flex space-x-2 my-2" for="phone">
-              <span class="p-2">Phone:</span>
-              <input class="w-full p-2" type="number" name="phone" id="phone" autocomplete="off" />
-            </label>
+      <!-- shopping cart start -->
+      <div class="shopping-cart col-span-1 bg-gray-100 pt-10 ">
+        <div class="mx-2">
+          <h4 class="text-center text-2xl mb-4 font-bold">Cart is Empty</h4>
+          <div class="border-b border-dashed border-gray-500 border-t py-5">
+            <ul id="cart-list">
+            </ul> 
+            <h4 class="text-center text-lg font-bold mt-16">Total : <span id="total"></span></h4>
+          </div>
+            <form id="form" class="mt-5">
+              <h5 class="text-lg font-bold text-center">Customer Detail</h5>
+              <label class="flex space-x-3 my-2" for="name">
+                <span class="p-2">Name:</span>
+                <input class="w-full p-2" type="text" name="name" id="name" />
+              </label>
+              <label class="flex space-x-4 my-2" for="email">
+                <span class="p-2">Email:</span>
+                <input class="w-full p-2" type="email" name="email" id="email" />
+              </label>
+              <label class="flex space-x-2 my-2" for="phone">
+                <span class="p-2">Phone:</span>
+                <input  class="w-full p-2 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none 
+                [&::-moz-number-spin-box]:hidden [caret-color:transparent]" type="number" name="phone" id="phone" autocomplete="off" />
+              </label>
+            </form>
             <div class="flex justify-center">
               <button class="bg-blue-500 mt-10 text-white py-2 px-4 rounded hover:bg-blue-300" class="checkout-button disabled" type="submit" id="checkout-button" value="checkout">Checkout</button>
             </div>
-          </form>
         </div>
       </div>
       <!-- shopping cart end -->
