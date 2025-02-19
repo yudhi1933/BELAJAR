@@ -12,7 +12,7 @@ function keranjang (nama, harga) {
   edit();
 };
 
-function kurang (nama) {
+function kurang(nama) {
   if (cart[nama]) {
     if (cart[nama].jumlah > 1) {
       cart[nama].jumlah--;
