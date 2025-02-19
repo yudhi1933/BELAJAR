@@ -68,7 +68,7 @@ checkout.addEventListener("click", () => {
     } else {
         alert("Terima kasih telah berbelanja di toko kami!"
         + "\nNama : " + nama.value
-        + "\nTotal : " + formatRupiah(total)
+        + "\nTotal : " + (total.innerHTML)
         );
         location.reload();
     }
