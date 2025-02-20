@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="bg-white">
+    <section class="relative">
+        <div class="bg-slate-700 relative pt-5">
+            <div class="w-1/2 h-[80vh] mx-auto bg-drakBlue pt-10 rounded-2xl">
+                <div class="flex justify-center items-center mx-20">
+                    <input type="number" readonly value="0" id="jam" name="jam" class="h-44 w-full text-7xl text-center bg-transparent border-none outline-none focus:ring-0 focus:border-transparent text-white">
+                    <span class="text-7xl text-white">:</span>
+                    <input type="number" readonly value="00" id="menit" name="menit" class="h-44 w-full text-7xl text-center bg-transparent border-none outline-none focus:ring-0 focus:border-transparent text-white">
+                    <span class="text-7xl text-white">:</span>
+                    <input type="number" readonly value="00" id="detik" name="detik" class="h-44 w-full text-7xl text-center bg-transparent border-none outline-none focus:ring-0 focus:border-transparent text-white">
+                    <span class="text-7xl text-white">:</span>
+                    <input type="number" readonly value="00" id="milidetik" name="milidetik" class="h-44 w-full text-7xl text-center bg-transparent border-none outline-none focus:ring-0 focus:border-transparent text-white">
+                </div>
+                <div class="flex justify-center gap-5 mt-10">
+                    <button onclick="start()" class="bg-red-600 text-2xl text-white py-3 px-10 rounded-2xl hover:bg-red-500 transition transform active:scale-95">Start</button>
+                    <button onclick="stop()" class="bg-red-600 text-2xl text-white py-3 px-10 rounded-2xl hover:bg-red-500 transition transform active:scale-95">Stop</button>
+                    <button onclick="resed()" class="bg-red-600 text-2xl text-white py-3 px-10 rounded-2xl hover:bg-red-500 transition transform active:scale-95">Reset</button>
+                </div>
+            </div>
+        </div>
+        <div class="absolute -bottom-1 left-0 w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,64L34.3,64C68.6,64,137,64,206,74.7C274.3,85,343,107,411,138.7C480,171,549,213,617,192C685.7,171,754,85,823,80C891.4,75,960,149,1029,149.3C1097.1,149,1166,75,1234,58.7C1302.9,43,1371,85,1406,106.7L1440,128L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        </div>
+    </section>
+    <section>
+        <h1 class="text-8xl font-sans italic text-center font-bold">STOPWATCH</h1>
+    </section>
+</body>
+<script src="./script/stopwatch.js"></script>
+</html>
