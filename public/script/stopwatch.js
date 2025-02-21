@@ -15,3 +15,5 @@ setInterval(() => {
     document.getElementById("detik").value = detik;
     document.getElementById("milidetik").value = milidetik;
 }, 10);
+
+
