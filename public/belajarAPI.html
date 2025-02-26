@@ -7,10 +7,14 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <h1>Belajar API</h1>
-    <div>
-        
+    <div class="mt-10">
+        <h1 class="text-center text-4xl font-mono">Belajar API</h1>
+        <div class="flex justify-between w-1/2 mx-auto mt-10 ">
+            <input type="text" id="keyword" placeholder="Cari HP . . . ." class="w-full border border-slate-600 p-2 mr-5 rounded-md">
+            <button onclick="cari()" id="cari" class="text-white p-2 w-24 rounded-md bg-blue-500 hover:bg-blue-600 focus:outline-2 focus:outline-offset-2 focus:outline-blue-500 active:bg-blue-700">Cari</button>
+        </div>
+        <div id="container"></div>
     </div>
-    <script src="./js/script.js"></script>
+    <script src="./script/belajarAPI.js"></script>
 </body>
 </html>
