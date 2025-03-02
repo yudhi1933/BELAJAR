@@ -83,36 +83,32 @@ function updateItem(){
 };
 
 function tambahKeranjang(id){
-  const indexProducts = products.findIndex(product => product.id === id)
-  const dataProducts = products[indexProducts]
-
-  console.log(keranjangProduct)
-  const keranjangData = keranjangProduct[keranjangProduct.findIndex(pr => pr.id === id)]
+  const indexProducts = products.findIndex(product => product.id === id);
+  const dataProducts = products[indexProducts];
+  const keranjangData = keranjangProduct[keranjangProduct.findIndex(pr => pr.id === id)];
   if (keranjangData === undefined) {
     keranjangProduct.push({...dataProducts, quantity: 1});
   } else {
-    keranjangData['quantity'] += 1
+    keranjangData['quantity'] += 1;
   }
   console.log(keranjangProduct)
   
-  updateItem()
+  updateItem();
 }
 
 function tambahJumlah(id) {
   const indexData = keranjangProduct.findIndex(product => product.id === id);
   keranjangProduct[indexData]['quantity'] += 1;
-  updateItem()
+  updateItem();
 };
 
 function kurangJumlah(id) {
   const indexData = keranjangProduct.findIndex(product => product.id === id);
-  if (keranjangProduct[indexData]['quantity']) {
-    if (keranjangProduct[indexData]['quantity'] === 1) {
-      delete keranjangProduct[indexData];
+    if (keranjangProduct[indexData] && keranjangProduct[indexData]['quantity'] === 1) {
+      keranjangProduct.splice(indexData, 1);
     } else {
       keranjangProduct[indexData]['quantity'] -= 1;
     }
-  }
   updateItem();
 }
 
