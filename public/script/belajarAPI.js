@@ -139,7 +139,7 @@ function formatRupiah(angka) {
 function checkout(){
   const totalHarga = keranjangProduct.reduce((sum, produk) => sum + (produk.price * produk.quantity), 0);
   if (keranjangProduct.length === 0) {
-    alert("Keranjang Kosong Silahkan Belanja Terlebih Dahulu");
+    alert("Keranjang Kosong Silahkan Belanja Terlebih Dahulu!!!");
   } else {
     alert("Terima kasih telah berbelanja di cafe Yudhi."
     + "\nPesanan : " + '\n' + (keranjangProduct.map(produk => produk.title + " = " + produk.quantity).join("\n"))
