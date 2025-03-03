@@ -88,6 +88,14 @@ function tambahKeranjang(id){
   const keranjangData = keranjangProduct[keranjangProduct.findIndex(pr => pr.id === id)];
   if (keranjangData === undefined) {
     keranjangProduct.push({...dataProducts, quantity: 1});
+    let svg = document.getElementById(`svg-${id}`);
+      if (svg.style.display === "none") {
+        //munculkan kembali
+        svg.style.display = "block";
+      }else{
+        //sembunyikan
+        svg.style.display = "none"; 
+      }
   } else {
     keranjangData['quantity'] += 1;
   }
@@ -106,6 +114,11 @@ function kurangJumlah(id) {
   const indexData = keranjangProduct.findIndex(product => product.id === id);
     if (keranjangProduct[indexData] && keranjangProduct[indexData]['quantity'] === 1) {
       keranjangProduct.splice(indexData, 1);
+      let svg = document.getElementById(`svg-${id}`);
+      if (svg.style.display === "none") {
+        //munculkan kembali
+        svg.style.display = "block"; 
+      }
     } else {
       keranjangProduct[indexData]['quantity'] -= 1;
     }
