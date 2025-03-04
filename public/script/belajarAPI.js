@@ -74,12 +74,6 @@ function updateItem(){
   const elementDetailChart = document.getElementById("detail-minuman");
   elementDetailChart.innerHTML = comp;
 
-  // const checkout = document.getElementById("checkout");
-  // checkout.innerHTML = `<button class="bg-orange-600 active:bg-orange-400 transition w-36 h-10 rounded-lg text-white font-bold" onclick="checkout()">Checkout</button>`;
-
-  // const totalHarga = keranjangProduct.reduce((sum, produk) => sum + (produk.price * produk.quantity), 0);
-  // document.getElementById("total").innerHTML = `TOTAL : ${formatRupiah(totalHarga)}`;
-
   const totalHarga = keranjangProduct.reduce((sum, produk) => sum + (produk.price * produk.quantity), 0);
   const total = document.getElementById("total");
   const checkout = document.getElementById("checkout");
